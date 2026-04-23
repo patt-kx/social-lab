@@ -742,10 +742,10 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
               <div>
                 <div style="font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px">Max Posts</div>
                 <select id="aiMaxPosts" class="ai-select">
-                  <option value="1000">1000 posts</option>
-                  <option value="5000">5000 posts</option>
-                  <option value="10000" selected>10000 posts</option>
-                  <option value="30000">30000 posts</option>
+                  <option value="1000" selected>1,000 posts</option>
+                  <option value="3000">3,000 posts</option>
+                  <option value="10000">10,000 posts</option>
+                  <option value="30000">30,000 posts</option>
                 </select>
               </div>
               <div>
@@ -795,7 +795,7 @@ let allRawData = [];  // All rows parsed by pandas — used by AI Summary
 let activeBrands = new Set();
 let currentPage = 1;
 const PAGE_SIZE = 50;
-const DISPLAY_COLS = ['id','source','created_at','Brands','Topics','sentiment','sentiment_score','text'];
+const DISPLAY_COLS = ['source','created_at','Brands','Topics','sentiment','text'];
 let reportData = { topicRows:[], sentRows:[], totalMention:0, totalEngagement:0, csvBlob:null };
 let csvFile1 = null, csvFile2 = null;  // store both uploaded files
 
@@ -1928,13 +1928,13 @@ function renderGrDonut(counts) {
 
       // Label name
       ctx.fillStyle = '#4B5168';
-      ctx.font = '500 11px "DM Sans", sans-serif';
-      ctx.fillText(s.label, labelX, y3 - 9);
+      ctx.font = '500 14px "DM Sans", sans-serif';
+      ctx.fillText(s.label, labelX, y3 - 11);
 
       // Percentage
       ctx.fillStyle = s.color;
-      ctx.font = '700 12.5px "DM Sans", sans-serif';
-      ctx.fillText(pct.toFixed(2) + '%', labelX, y3 + 7);
+      ctx.font = '700 16px "DM Sans", sans-serif';
+      ctx.fillText(pct.toFixed(2) + '%', labelX, y3 + 10);
     });
   });
 }
@@ -2078,11 +2078,11 @@ function renderGrWordCloud() {
   }
 
   // ── Canvas-based word cloud ──
-  const W = el.offsetWidth || 620, H = 340;
+  const W = 680, H = 320;
   const canvas = document.createElement('canvas');
   canvas.width  = W;
   canvas.height = H;
-  canvas.style.cssText = 'display:block;width:100%;border-radius:10px;background:#fff';
+  canvas.style.cssText = 'display:block;width:100%;max-width:' + W + 'px;border-radius:10px;background:#fff;margin:0 auto';
   el.appendChild(canvas);
   const ctx = canvas.getContext('2d');
 
@@ -2141,7 +2141,7 @@ function renderGrWordCloud() {
 
   top.forEach(([word, cnt], idx) => {
     const ratio    = (cnt - minC) / range;
-    const fontSize = Math.round(13 + ratio * 44);
+    const fontSize = Math.round(11 + ratio * 28);  // 11px → 39px
     const color    = PALETTE[idx % PALETTE.length];
     tryPlace(word, fontSize, color);
   });
@@ -2260,7 +2260,19 @@ function escapeHtml(str) {
 }
 
 // ── RAW DATA TABLE ──────────────────────────────────────────────────────────
-const GR_DISPLAY_COLS = ['id','source','created_at','Brands','Detail','sentiment','text','link'];
+const GR_DISPLAY_COLS = ['title','created_at','Brands','Detail','sentiment','text','link'];
+
+// Human-readable header labels for GR table columns
+const GR_COL_LABELS = {
+  title:       'LOCATION',
+  source:      'SOURCE',
+  created_at:  'DATE',
+  brands:      'BRANDS',
+  detail:      'DETAIL',
+  sentiment:   'SENTIMENT',
+  text:        'REVIEW',
+  link:        'LINK',
+};
 
 function renderGrRawTable() {
   const search = (document.getElementById('grTableSearch').value || '').toLowerCase();
@@ -2282,12 +2294,15 @@ function renderGrRawTable() {
   const cols = GR_DISPLAY_COLS.filter(c =>
     sampleKeys.some(k => k.toLowerCase() === c.toLowerCase())
   );
-  // Fallback: if no cols match, use first 8 keys
-  const finalCols = cols.length ? cols : sampleKeys.slice(0, 8);
+  // Fallback: if no cols match, use first 8 keys excluding 'id'
+  const finalCols = cols.length ? cols : sampleKeys.filter(k => k.toLowerCase() !== 'id').slice(0, 8);
 
-  // Build header
+  // Build header using friendly labels
   document.getElementById('grTHead').innerHTML =
-    '<tr>' + finalCols.map(c => `<th>${escapeHtml(c)}</th>`).join('') + '</tr>';
+    '<tr>' + finalCols.map(c => {
+      const label = GR_COL_LABELS[c.toLowerCase()] || c.toUpperCase();
+      return `<th>${escapeHtml(label)}</th>`;
+    }).join('') + '</tr>';
 
   const total = Math.max(1, Math.ceil(filtered.length / GR_PAGE_SIZE));
   grCurrentPage = Math.min(grCurrentPage, total);
@@ -2612,16 +2627,22 @@ Describe the sentiment distribution in concrete terms (e.g. proportions, dominan
 Identify 4–6 recurring conversation themes. For each theme: name it, explain what people are saying, and note its approximate share of conversation. Use bullet format.
 
 **HIGH-IMPACT POSITIVE SIGNALS**
-Top positive drivers — what is resonating, what consumers love, which messages are amplifying brand equity. Summarize in Bullet format.
+Top positive drivers — what is resonating, what consumers love, which messages are amplifying brand equity. Cite specific post examples or phrases. Bullet format.
 
 **RISK AREAS & NEGATIVE SIGNALS**
-Pain points, complaints, crisis seeds, or reputational risks. Be specific and insightful with analytics. Summarize in Bullet format.
+Pain points, complaints, crisis seeds, or reputational risks. Be specific. Rate each as Low / Medium / High risk. Bullet format.
 
 **CHANNEL & SOURCE INTELLIGENCE**
 Observations about where conversations are happening, which channels drive the most engagement or negativity, and platform-specific behaviours.
 
+**AUDIENCE VOICE — VERBATIM SIGNALS**
+3–5 direct quotes or paraphrased sentiments that best represent the data (high-engagement posts preferred). Label each with sentiment and engagement score.
+
+**STRATEGIC RECOMMENDATIONS**
+3–5 concrete, prioritised actions for the marketing / brand team. Each recommendation should state: the action, why it matters (linked to the data), and the suggested channel or format.
+
 Rules:
-- Be specific and data-driven.
+- Be specific and data-driven. Reference post counts, engagement scores, and examples.
 - Avoid generic marketing waffle. Every sentence must add insight.
 - Write in clear, professional English suitable for a brand manager briefing.
 - Do not repeat yourself across sections.`;
