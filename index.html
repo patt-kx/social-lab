@@ -219,6 +219,28 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
 .gr-subpanel{display:none}
 .gr-subpanel.active{display:block}
 
+/* ── BRANCH TOP 5 TABLE ── */
+.gr-top5-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.gr-top5-pill{font-size:11px;font-weight:600;padding:4px 14px;border-radius:20px;border:1px solid var(--border2);cursor:pointer;transition:all .15s;user-select:none;color:var(--text2);background:var(--surface);font-family:"DM Sans",sans-serif}
+.gr-top5-pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-lt)}
+.gr-top5-pill.active-all{background:var(--accent);color:#fff;border-color:var(--accent)}
+.gr-top5-pill.active-pos{background:var(--pos);color:#fff;border-color:var(--pos)}
+.gr-top5-pill.active-neu{background:var(--neu);color:#fff;border-color:var(--neu)}
+.gr-top5-pill.active-neg{background:var(--neg);color:#fff;border-color:var(--neg)}
+.gr-top5-table{width:100%;border-collapse:collapse}
+.gr-top5-table thead th{background:var(--bg);padding:9px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--text3);text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.gr-top5-table thead th.num{text-align:right}
+.gr-top5-table tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+.gr-top5-table tbody tr:last-child{border-bottom:none}
+.gr-top5-table tbody tr:hover{background:var(--bg)}
+.gr-top5-table tbody td{padding:10px 14px;font-size:12px;color:var(--text2);white-space:nowrap}
+.gr-top5-table tbody td.num{text-align:right;font-family:"DM Mono",monospace;font-size:12px}
+.gr-top5-table tbody td.branch-name{font-weight:700;color:var(--text);max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.gr-top5-netsent{font-family:"DM Mono",monospace;font-size:12px;font-weight:700}
+.gr-top5-netsent.pos{color:var(--pos)}
+.gr-top5-netsent.neg{color:var(--neg)}
+.gr-top5-netsent.neu{color:var(--neu)}
+
 /* KPI Row */
 .gr-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
 .gr-kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--shadow-sm);position:relative}
@@ -281,6 +303,7 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
 .gr-review-link{font-size:11px;color:var(--accent);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:3px;padding:2px 9px;border:1px solid rgba(37,99,235,.25);border-radius:20px;background:var(--accent-lt);transition:all .15s}
 .gr-review-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 .gr-review-no-link{font-size:11px;color:var(--text3);font-style:italic}
+.gr-review-location{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#7c3aed;background:#f3f0ff;border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:2px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
 
 /* Empty/loading states inside dashboard */
 .gr-chart-empty{padding:28px 20px;text-align:center;color:var(--text3);font-size:13px;font-style:italic}
@@ -344,6 +367,97 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
 .ai-sent-negative{background:var(--neg-lt);color:var(--neg);border:1px solid rgba(239,68,68,.25)}
 .ai-sent-neutral{background:var(--neu-lt);color:#b45309;border:1px solid rgba(245,158,11,.25)}
 .ai-eng-tag{display:inline-flex;align-items:center;padding:1px 7px;border-radius:5px;font-size:10px;font-weight:600;background:var(--accent-lt);color:var(--accent);border:1px solid rgba(37,99,235,.2);margin:0 2px;vertical-align:middle;font-family:"DM Mono",monospace}
+
+/* ── BRAND DEEP-DIVE ── */
+.bdd-selector{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+.bdd-selector-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);flex-shrink:0}
+.bdd-brand-pills{display:flex;flex-wrap:wrap;gap:7px;flex:1}
+.bdd-pill{font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;border:1.5px solid var(--border2);cursor:pointer;transition:all .15s;user-select:none;color:var(--text2);background:var(--surface);font-family:"DM Sans",sans-serif}
+.bdd-pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-lt);transform:translateY(-1px)}
+.bdd-pill.active{color:#fff;border-color:transparent;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.15);transform:translateY(-1px)}
+.bdd-kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+.bdd-kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.bdd-kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.bdd-kpi.pos::before{background:var(--pos)}
+.bdd-kpi.neg::before{background:var(--neg)}
+.bdd-kpi.neu::before{background:var(--neu)}
+.bdd-kpi.eng::before{background:#7c3aed}
+.bdd-kpi-val{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;font-weight:800;color:var(--text);line-height:1;margin-bottom:4px}
+.bdd-kpi-lbl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px}
+.bdd-kpi-sub{font-size:10px;color:var(--text3);margin-top:3px;font-family:"DM Mono",monospace}
+.bdd-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.bdd-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:1200px){.bdd-grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.bdd-grid-2,.bdd-grid-3{grid-template-columns:1fr}}
+@media(max-width:1100px){.bdd-kpi-row{grid-template-columns:repeat(3,1fr)}}
+.bdd-section-title{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.bdd-section-title span{font-size:14px}
+
+/* Source breakdown bars */
+.bdd-src-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.bdd-src-lbl{font-size:11px;font-weight:600;color:var(--text2);width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:capitalize}
+.bdd-src-track{flex:1;height:18px;border-radius:4px;overflow:hidden;background:var(--bg);border:1px solid var(--border)}
+.bdd-src-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.bdd-src-val{font-family:"DM Mono",monospace;font-size:10px;color:var(--text3);width:40px;text-align:right;flex-shrink:0}
+
+/* Top posts list */
+.bdd-post-item{display:flex;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);margin-bottom:8px;transition:border-color .15s}
+.bdd-post-item:hover{border-color:var(--border2)}
+.bdd-post-rank{width:24px;height:24px;border-radius:50%;background:var(--accent-lt);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque",sans-serif;font-size:11px;font-weight:800;color:var(--accent);flex-shrink:0;margin-top:2px}
+.bdd-post-body{flex:1;min-width:0}
+.bdd-post-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap}
+.bdd-post-source{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;background:var(--bg);border:1px solid var(--border);padding:1px 7px;border-radius:4px}
+.bdd-post-date{font-size:10px;color:var(--text3);font-family:"DM Mono",monospace}
+.bdd-post-eng{font-size:10px;font-weight:700;color:#7c3aed;background:#f5f3ff;border:1px solid rgba(124,58,237,.2);padding:1px 7px;border-radius:4px;font-family:"DM Mono",monospace}
+.bdd-post-link{font-size:10px;font-weight:700;color:var(--accent);background:var(--accent-lt);border:1px solid rgba(37,99,235,.2);padding:1px 8px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:all .15s;font-family:"DM Mono",monospace}
+.bdd-post-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bdd-post-text{font-size:12px;color:var(--text2);line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;word-break:break-word}
+.bdd-post-stats{display:flex;align-items:center;gap:10px;margin-top:7px;flex-wrap:wrap}
+.bdd-post-stat{font-size:11px;color:var(--text3);font-family:"DM Mono",monospace;background:var(--bg);border:1px solid var(--border);padding:2px 8px;border-radius:4px;white-space:nowrap}
+.bdd-post-stat strong{color:var(--text2);font-weight:700}
+
+/* Timeline sparkline */
+.bdd-timeline-wrap{overflow-x:auto;padding-bottom:4px}
+.bdd-timeline-svg{display:block;width:100%;min-height:120px}
+
+/* Engagement score donut (big) */
+.bdd-eng-donut-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 0}
+.bdd-score-ring{position:relative;width:160px;height:160px;flex-shrink:0}
+.bdd-score-ring canvas{display:block}
+.bdd-score-centre{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+
+/* Topic radar / bar */
+.bdd-topic-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bdd-topic-lbl{font-size:11px;font-weight:700;color:var(--text2);width:80px;flex-shrink:0;text-transform:capitalize}
+.bdd-topic-track{flex:1;height:20px;display:flex;border-radius:5px;overflow:hidden;background:var(--bg);border:1px solid var(--border)}
+.bdd-topic-seg{height:100%;transition:width .65s cubic-bezier(.16,1,.3,1)}
+.bdd-topic-total{font-family:"DM Mono",monospace;font-size:10px;color:var(--text3);width:36px;text-align:right;flex-shrink:0}
+
+/* Competitor compare */
+.bdd-compare-table{width:100%;border-collapse:collapse}
+.bdd-compare-table th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);padding:7px 12px;text-align:left;background:var(--bg);border-bottom:1px solid var(--border)}
+.bdd-compare-table th.num{text-align:right}
+.bdd-compare-table td{font-size:12px;color:var(--text2);padding:8px 12px;border-bottom:1px solid var(--border)}
+.bdd-compare-table td.num{text-align:right;font-family:"DM Mono",monospace}
+.bdd-compare-table tr.highlight-row td{background:var(--accent-lt);font-weight:700;color:var(--accent)}
+.bdd-compare-table tr:last-child td{border-bottom:none}
+.bdd-bar-inline{display:inline-flex;align-items:center;gap:6px;width:100%}
+.bdd-bar-inline-track{flex:1;height:6px;border-radius:3px;background:var(--bg);overflow:hidden;border:1px solid var(--border)}
+.bdd-bar-inline-fill{height:100%;border-radius:3px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+
+/* Word cloud container reuse */
+.bdd-wordcloud{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;padding:20px 16px;min-height:160px;background:linear-gradient(135deg,#FAFBFE 0%,#F5F6FA 100%);border:1px solid var(--border);border-radius:8px}
+
+/* Empty placeholder inside a card */
+.bdd-placeholder{padding:32px;text-align:center;color:var(--text3);font-size:13px;font-style:italic}
+
+/* Metric toggle */
+.bdd-metric-toggle{display:flex;align-items:center;gap:0;border:1.5px solid var(--border2);border-radius:8px;overflow:hidden;flex-shrink:0}
+.bdd-metric-btn{padding:6px 16px;font-size:12px;font-weight:600;font-family:"DM Sans",sans-serif;border:none;background:var(--surface);color:var(--text3);cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1.4}
+.bdd-metric-btn:first-child{border-right:1.5px solid var(--border2)}
+.bdd-metric-btn:hover{background:var(--accent-lt);color:var(--accent)}
+.bdd-metric-btn.active{background:var(--accent);color:#fff;font-weight:700}
+.bdd-selector-divider{width:1px;background:var(--border2);align-self:stretch;margin:0 4px}
 </style>
 </head>
 <body>
@@ -424,10 +538,11 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
 
   <div class="main-area">
     <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="report">📋 Report</button>
-      <button class="tab-btn" data-tab="charts">📊 Charts</button>
-      <button class="tab-btn" data-tab="table">🗂 Data Table</button>
+      <button class="tab-btn active" data-tab="report">📋 Statistical Data</button>
+      <button class="tab-btn" data-tab="brand">🏷 Brand Deep-Dive</button>
+      <button class="tab-btn" data-tab="charts">📊 Sentiment</button>
       <button class="tab-btn" data-tab="greview">⭐ Google Review</button>
+      <button class="tab-btn" data-tab="table">🗂 Data Table</button>
       <button class="tab-btn" data-tab="ai">✦ AI Summary</button>
     </nav>
 
@@ -442,7 +557,7 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
         </div>
         <div id="reportContent" style="display:none">
           <div class="page-header">
-            <div class="page-title">Monthly Report — <span id="reportDateLabel">—</span></div>
+            <div class="page-title">Statistical Data — <span id="reportDateLabel">—</span></div>
             <button class="btn-primary" id="downloadBtn" disabled>⬇ Download CSV</button>
           </div>
           <div class="kpi-row">
@@ -601,6 +716,37 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
                 <div class="card-title">Category × Sentiment</div>
                 <div class="card-sub">Mentions grouped by Detail, split by sentiment</div>
                 <div id="grCategoryStack"></div>
+              </div>
+            </div>
+
+            <!-- Top 5 Branches by Sentiment -->
+            <div class="card">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;flex-wrap:wrap;gap:10px">
+                <div>
+                  <div class="card-title" style="margin-bottom:2px">Top 5 Branch / Location</div>
+                  <div class="card-sub" style="margin-bottom:0">Ranked by mentions — filter by sentiment column to sort</div>
+                </div>
+              </div>
+              <div class="gr-top5-filter">
+                <button class="gr-top5-pill active-all" data-top5="all">All</button>
+                <button class="gr-top5-pill" data-top5="positive">Positive</button>
+                <button class="gr-top5-pill" data-top5="neutral">Neutral</button>
+                <button class="gr-top5-pill" data-top5="negative">Negative</button>
+              </div>
+              <div style="overflow-x:auto;border:1px solid var(--border);border-radius:var(--r)">
+                <table class="gr-top5-table">
+                  <thead id="grTop5Head">
+                    <tr>
+                      <th>Branch / Location</th>
+                      <th class="num">Mentions</th>
+                      <th class="num" style="color:var(--pos)">Positive</th>
+                      <th class="num" style="color:var(--neu)">Neutral</th>
+                      <th class="num" style="color:var(--neg)">Negative</th>
+                      <th class="num">Net Sentiment</th>
+                    </tr>
+                  </thead>
+                  <tbody id="grTop5Body"></tbody>
+                </table>
               </div>
             </div>
 
@@ -781,9 +927,119 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
+      <!-- ═══ BRAND DEEP-DIVE ═══ -->
+      <div class="panel" id="panel-brand">
+        <div class="empty-state" id="bddEmpty">
+          <div class="empty-icon">🏷</div>
+          <div class="empty-title">No data loaded</div>
+          <div class="empty-sub">Upload a CSV first, then select a brand to explore its full social listening profile</div>
+        </div>
+        <div id="bddContent" style="display:none">
+          <!-- Brand selector -->
+          <div class="bdd-selector">
+            <div class="bdd-selector-label">Select Brand</div>
+            <div class="bdd-brand-pills" id="bddBrandPills"></div>
+            <div class="bdd-selector-divider"></div>
+            <div style="flex-shrink:0">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text3);margin-bottom:5px;text-align:center">View By</div>
+              <div class="bdd-metric-toggle">
+                <button class="bdd-metric-btn" id="bddMetricMention" data-metric="mention">📌 Mention</button>
+                <button class="bdd-metric-btn active" id="bddMetricEngagement" data-metric="engagement">⚡ Engagement</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand name hero -->
+          <div id="bddHero" style="display:none;margin-bottom:20px">
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+              <div id="bddHeroBadge" style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.15)"></div>
+              <div>
+                <div id="bddHeroName" style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:var(--text);line-height:1"></div>
+                <div id="bddHeroSub" style="font-size:12px;color:var(--text3);margin-top:3px;font-weight:500"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI Row -->
+          <div class="bdd-kpi-row" id="bddKpiRow"></div>
+
+          <!-- Row 1: Sentiment donut + Topic breakdown -->
+          <div class="bdd-grid-2">
+            <div class="card" style="margin-bottom:0">
+              <div class="bdd-section-title"><span>📊</span>Sentiment Distribution</div>
+              <div id="bddSentDonut"></div>
+            </div>
+            <div class="card" style="margin-bottom:0">
+              <div class="bdd-section-title"><span>🏷</span>Topic Breakdown</div>
+              <div id="bddTopicBars"></div>
+            </div>
+          </div>
+          <div style="margin-bottom:14px"></div>
+
+          <!-- Row 2: Source breakdown + Sentiment by Topic -->
+          <div class="bdd-grid-2">
+            <div class="card" style="margin-bottom:0">
+              <div class="bdd-section-title"><span>📡</span>Source / Channel Breakdown</div>
+              <div id="bddSourceBars"></div>
+            </div>
+            <div class="card" style="margin-bottom:0">
+              <div class="bdd-section-title"><span>🔬</span>Sentiment by Topic</div>
+              <div id="bddTopicSentBars"></div>
+            </div>
+          </div>
+          <div style="margin-bottom:14px"></div>
+
+          <!-- Row 4: Competitor comparison table (full width) -->
+          <div class="card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:10px">
+              <div class="bdd-section-title" style="margin-bottom:0;border:none;padding:0"><span>⚔️</span>Brand Comparison</div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <span style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Sort by:</span>
+                <select id="bddCompareSort" class="ai-select" style="width:auto;height:30px;font-size:11px;padding:0 10px">
+                  <option value="mention">Mentions</option>
+                  <option value="engagement">Engagement</option>
+                  <option value="positive">Positive %</option>
+                  <option value="negative">Negative %</option>
+                </select>
+              </div>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="bdd-compare-table" id="bddCompareTable">
+                <thead><tr>
+                  <th>Brand</th>
+                  <th class="num" data-col="mention">Mentions</th>
+                  <th class="num" data-col="engagement">Engagement</th>
+                  <th class="num">Positive %</th>
+                  <th class="num">Neutral %</th>
+                  <th class="num">Negative %</th>
+                  <th style="min-width:140px">Positive vs Negative</th>
+                </tr></thead>
+                <tbody id="bddCompareTBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Row 5: Top posts (full width) -->
+          <div class="card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:10px">
+              <div class="bdd-section-title" style="margin-bottom:0;border:none;padding:0"><span>🔥</span>Top Posts by Engagement</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap" id="bddPostSentFilter">
+                <button class="gr-rev-pill active" data-bdd-sent="all">All</button>
+                <button class="gr-rev-pill" data-bdd-sent="positive">😊 Positive</button>
+                <button class="gr-rev-pill" data-bdd-sent="neutral">😐 Neutral</button>
+                <button class="gr-rev-pill" data-bdd-sent="negative">😞 Negative</button>
+              </div>
+            </div>
+            <div id="bddTopPosts"></div>
+            <div style="display:flex;justify-content:center;margin-top:10px">
+              <button class="btn-outline" id="bddLoadMorePosts" style="display:none">Load more posts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.main-content -->
+
 
 <script>
 
@@ -897,7 +1153,7 @@ async function triggerPipeline() {
 
   await runMainPipeline();
   updateSidebarStats(); buildBrandFilter(); buildColToggles();
-  filteredData=[...rawData]; renderCharts(); renderTable(); updateAiPanel(); updateGooglePanel();
+  filteredData=[...rawData]; renderCharts(); renderTable(); updateAiPanel(); updateGooglePanel(); updateBrandDeepDive();
   setStatus('ready', totalLabel);
 }
 
@@ -931,6 +1187,11 @@ from datetime import date
 
 df = pd.read_csv(io.StringIO(_csv_data), low_memory=False)
 df.columns = [c.lstrip('\\ufeff') for c in df.columns]
+# Normalise common column name variants (case differences between files)
+if 'Source' in df.columns and 'source' not in df.columns:
+    df = df.rename(columns={'Source': 'source'})
+if 'view_count' not in df.columns:
+    df['view_count'] = 0
 final_sw_data = pd.DataFrame()
 `);
 }
@@ -1055,17 +1316,31 @@ for col in ['negative', 'neutral', 'positive', 'engagement', 'mention']:
 combined_data_with_blanks = combined_data_with_blanks.reset_index(drop=True)
 `],
 
-    // ── STEP 6: sentiment by brand (on exploded df, same source) ─────────────
+    // ── STEP 6: sentiment by brand (on brand-only explode, not Brand×Topic) ─────
     ['step6', `
 combined_data_with_blanks[" "] = ""   # spacer column
 
-# Unique mention count per Brand × sentiment — from the same exploded df
+# Build a brand-only exploded df from the raw df so sentiment counts are
+# NOT multiplied by the number of topics (which the double-exploded
+# filtered_mfg_exploded_final would do).
+def _cs6(val):
+    s = str(val).strip()
+    if s.startswith('[') and s.endswith(']'): s = s[1:-1]
+    return [x.strip() for x in s.split(',') if x.strip()]
+
+_s6 = df.copy()
+_s6['_bl'] = _s6['Brands'].apply(_cs6)
+_s6 = _s6.explode('_bl')
+_s6 = _s6[_s6['_bl'].notna() & (_s6['_bl'] != '')]
+
+# Unique mention count per Brand × sentiment
 sentiment_counts_by_brand = (
-    filtered_mfg_exploded_final
-    .groupby(['Brands', 'sentiment'])['id']
+    _s6
+    .groupby(['_bl', 'sentiment'])['id']
     .nunique()
     .unstack(fill_value=0)
     .reset_index()
+    .rename(columns={'_bl': 'Brands'})
 )
 
 # Ensure all sentiment columns exist
@@ -1136,19 +1411,44 @@ for _, row in sentiment_counts_by_brand.iterrows():
     pos = _i(row.get('positive', 0))
     _sent_rows.append({'brand':b,'negative':neg,'neutral':neu,'positive':pos,'total':neg+neu+pos})
 
-# ── Brand × Topic view sum ────────────────────────────────────────────────────
-filtered_mfg_exploded_final['view_count'] = pd.to_numeric(
-    filtered_mfg_exploded_final['view_count'], errors='coerce').fillna(0)
+# ── Per-brand and per-topic metrics (engagement, mention, view) ───────────────
+# IMPORTANT: must use single-axis explodes from the RAW df (not filtered_mfg_exploded_final)
+# so that each post's engagement_score is counted once per brand / once per topic,
+# not once per (brand × topic) combination which would inflate numbers.
 
-view_by_brand = filtered_mfg_exploded_final.groupby('Brands')['view_count'].sum().to_dict()
-view_by_topic = filtered_mfg_exploded_final.groupby('Topics')['view_count'].sum().to_dict()
-eng_by_brand  = filtered_mfg_exploded_final.groupby('Brands')['engagement_score'].sum().to_dict()
-eng_by_topic  = filtered_mfg_exploded_final.groupby('Topics')['engagement_score'].sum().to_dict()
-men_by_brand  = filtered_mfg_exploded_final.groupby('Brands')['id'].nunique().to_dict()
-men_by_topic  = filtered_mfg_exploded_final.groupby('Topics')['id'].nunique().to_dict()
-view_by_source = df.groupby('source')['view_count'].sum().to_dict() if 'view_count' in df.columns else {}
-eng_by_source  = df.groupby('source')['engagement_score'].sum().to_dict()
-men_by_source  = df.groupby('source')['id'].nunique().to_dict()
+def _clean_split(val):
+    s = str(val).strip()
+    if s.startswith('[') and s.endswith(']'): s = s[1:-1]
+    return [x.strip() for x in s.split(',') if x.strip()]
+
+# --- Brand-axis explode ---
+_df_brands = df.copy()
+_df_brands['engagement_score'] = pd.to_numeric(_df_brands['engagement_score'], errors='coerce').fillna(0)
+if 'view_count' not in _df_brands.columns: _df_brands['view_count'] = 0
+_df_brands['view_count'] = pd.to_numeric(_df_brands['view_count'], errors='coerce').fillna(0)
+_df_brands['_bl'] = _df_brands['Brands'].apply(_clean_split)
+_df_brands_exploded = _df_brands.explode('_bl')
+_df_brands_exploded = _df_brands_exploded[_df_brands_exploded['_bl'].notna() & (_df_brands_exploded['_bl'] != '')]
+eng_by_brand  = _df_brands_exploded.groupby('_bl')['engagement_score'].sum().to_dict()
+men_by_brand  = _df_brands_exploded.groupby('_bl')['id'].nunique().to_dict()
+view_by_brand = _df_brands_exploded.groupby('_bl')['view_count'].sum().to_dict()
+
+# --- Topic-axis explode ---
+_df_topics = df.copy()
+_df_topics['engagement_score'] = pd.to_numeric(_df_topics['engagement_score'], errors='coerce').fillna(0)
+if 'view_count' not in _df_topics.columns: _df_topics['view_count'] = 0
+_df_topics['view_count'] = pd.to_numeric(_df_topics['view_count'], errors='coerce').fillna(0)
+_df_topics['_tl'] = _df_topics['Topics'].apply(_clean_split)
+_df_topics_exploded = _df_topics.explode('_tl')
+_df_topics_exploded = _df_topics_exploded[_df_topics_exploded['_tl'].notna() & (_df_topics_exploded['_tl'] != '')]
+eng_by_topic  = _df_topics_exploded.groupby('_tl')['engagement_score'].sum().to_dict()
+men_by_topic  = _df_topics_exploded.groupby('_tl')['id'].nunique().to_dict()
+view_by_topic = _df_topics_exploded.groupby('_tl')['view_count'].sum().to_dict()
+
+# --- Source metrics (source is not exploded, one value per row) ---
+view_by_source = df.groupby('source')['view_count'].sum().to_dict() if 'source' in df.columns and 'view_count' in df.columns else {}
+eng_by_source  = df.groupby('source')['engagement_score'].sum().to_dict() if 'source' in df.columns else {}
+men_by_source  = df.groupby('source')['id'].nunique().to_dict() if 'source' in df.columns else {}
 
 # ── Brand × Topic sentiment (for stacked sentiment chart) ─────────────────────
 _desired_topics = ['product', 'promotion', 'price', 'branding', 'service', 'activity', 'others']
@@ -1193,17 +1493,23 @@ _js_payload = json.dumps({
 
 # ── Google Reviews: export directly from pandas (avoids JS parseCSV
 #    dropping rows that contain embedded newlines in the text field) ──────────
-_gr_mask = df['source'].astype(str).str.lower().str.contains('googlereviews', na=False)
+_gr_mask = df['source'].astype(str).str.lower().str.contains('googlereviews', na=False) if 'source' in df.columns else pd.Series([False]*len(df))
 _gr_df = df[_gr_mask].copy()
+# Only keep columns the GR panel actually uses — avoids serialising unused wide columns
+_gr_keep = [c for c in ['id','source','text','sentiment','created_at','date','engagement_score',
+                         'view_count','comment_count','like_count','share_count','retweet_count','reply_count',
+                         'Brands','Topics','Detail','detail','Category','category',
+                         'link','Link','url','URL','post_url','post_link','permalink','source_url',
+                         'title','Title','page','Page',
+                         'branch','Branch','location','Location'] if c in _gr_df.columns]
+_gr_df = _gr_df[_gr_keep] if _gr_keep else _gr_df
 # Serialise NaN as None → null in JSON so JS doesn't see "nan" strings
 _gr_df = _gr_df.where(_gr_df.notna(), other=None)
 _gr_rows_payload = _gr_df.to_json(orient='records', force_ascii=False)
 
-# ── All rows: export directly from pandas so AI Summary also gets the full
-#    dataset (same embedded-newline issue would drop rows from rawData) ────────
-_all_df = df.copy()
-_all_df = _all_df.where(_all_df.notna(), other=None)
-_all_rows_payload = _all_df.to_json(orient='records', force_ascii=False)
+# ── All rows payload is built lazily (on AI tab open) to avoid MemoryError
+#    on large datasets. Set a sentinel so JS knows to fetch it on demand. ──────
+_all_rows_payload = '__LAZY__'
 `],
   ];
 
@@ -1237,9 +1543,8 @@ _all_rows_payload = _all_df.to_json(orient='records', force_ascii=False)
   const _grRaw = pyodide.globals.get('_gr_rows_payload');
   grRawData = JSON.parse(typeof _grRaw === 'string' ? _grRaw : _grRaw.toString());
 
-  // Pull all rows parsed by pandas — used by AI Summary to avoid the same drop
-  const _allRaw = pyodide.globals.get('_all_rows_payload');
-  allRawData = JSON.parse(typeof _allRaw === 'string' ? _allRaw : _allRaw.toString());
+  // allRawData is loaded lazily on first AI/BDD access to avoid MemoryError on large datasets
+  allRawData = [];
 
   // Build CSV download blob
   const csvStr = await pyodide.runPythonAsync(`
@@ -1367,6 +1672,29 @@ function applyFilters() {
 // ── CHARTS ────────────────────────────────────────────────────────────────────
 const SENT_COLORS  = { positive:'#1DC997', neutral:'#FFC145', negative:'#FF5050' };
 const TOPIC_ORDER  = ['product','promotion','price','branding','service','activity','others'];
+
+// ── CHANNEL NORMALISATION ─────────────────────────────────────────────────────
+// All channel visualisations collapse raw source values into exactly 6 buckets.
+const CANONICAL_CHANNELS = ['Facebook','Instagram','TikTok','X (Twitter)','YouTube','Website'];
+const CHANNEL_COLORS = {
+  'Facebook':   '#1877F2',
+  'Instagram':  '#E1306C',
+  'TikTok':     '#010101',
+  'X (Twitter)':'#1DA1F2',
+  'YouTube':    '#FF0000',
+  'Website':    '#6B7280',
+};
+function normalizeChannel(raw) {
+  const s = String(raw||'').toLowerCase().trim();
+  if (!s || s === 'null' || s === 'undefined') return 'Website';
+  if (s.includes('facebook') || s === 'fb')   return 'Facebook';
+  if (s.includes('instagram') || s === 'ig')  return 'Instagram';
+  if (s.includes('tiktok') || s === 'tt')     return 'TikTok';
+  if (s.includes('twitter') || s.includes('x (twitter)') || s === 'x' || s === 'tweet') return 'X (Twitter)';
+  if (s.includes('youtube') || s === 'yt')    return 'YouTube';
+  // Anything else (web, blog, news, forum, pantip, etc.) → Website
+  return 'Website';
+}
 
 let activeTSBrand = '__all__';
 
@@ -1801,6 +2129,7 @@ function renderGrDashboard() {
   // ── Charts
   renderGrDonut(sentCounts);
   renderGrCategoryStack();
+  renderGrTop5Branches();
   renderGrWordCloud();
   renderGrExampleReviews();
 }
@@ -2194,6 +2523,8 @@ function renderGrExampleReviews() {
   slice.forEach(r => {
     const brand = _grGet(r, 'Brands', 'brand', 'Brand') || 'Unknown Brand';
     const brandClean = String(brand).replace(/^\[|\]$/g, '').trim();
+    const location = String(_grGet(r, 'title', 'Title', 'location', 'Location') || '').trim();
+    const locationClean = (location && location !== 'null') ? location : '';
     const text  = _grGet(r, 'text', 'Text', 'review', 'Review');
     const sent  = String(r.sentiment || '').toLowerCase();
     const date  = _grGet(r, 'created_at', 'date', 'Date');
@@ -2214,7 +2545,7 @@ function renderGrExampleReviews() {
       <div class="gr-review-avatar">${initial}</div>
       <div class="gr-review-body">
         <div class="gr-review-head">
-          <span class="gr-review-brand">${escapeHtml(brandClean)}</span>
+          ${locationClean ? `<span class="gr-review-location">📍 ${escapeHtml(locationClean)}</span>` : `<span class="gr-review-brand">${escapeHtml(brandClean)}</span>`}
           ${dateFmt ? `<span class="gr-review-date">· ${escapeHtml(dateFmt)}</span>` : ''}
         </div>
         <div class="gr-review-text">${escapeHtml(text || '(no text)')}</div>
@@ -2236,10 +2567,85 @@ function renderGrExampleReviews() {
   }
 }
 
-document.getElementById('grLoadMoreBtn').addEventListener('click', () => {
-  grReviewLimit += 10;
-  renderGrExampleReviews();
+// ── TOP 5 BRANCH / LOCATION TABLE ───────────────────────────────────────────
+let grTop5Filter = 'all'; // all | positive | neutral | negative
+
+function renderGrTop5Branches() {
+  const tbody = document.getElementById('grTop5Body');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+
+  // Aggregate by branch name — look for title/Title first (Google Maps page name),
+  // then location/Location, then branch/Branch. Never fall back to Brands.
+  const branches = {};
+  grData.forEach(r => {
+    const branch = String(_grGet(r, 'title', 'Title', 'page', 'Page', 'location', 'Location', 'branch', 'Branch') || '').trim();
+    if (!branch || branch === 'null') return;
+    const sent = String(r.sentiment || '').toLowerCase().trim();
+    if (!branches[branch]) branches[branch] = { positive: 0, neutral: 0, negative: 0 };
+    if (branches[branch][sent] !== undefined) branches[branch][sent]++;
+  });
+
+  if (!Object.keys(branches).length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text3);font-style:italic">No branch/location data found — needs a "title", "Location", "branch", or "page" column</td></tr>`;
+    return;
+  }
+
+  // Build sortable list
+  let list = Object.entries(branches).map(([name, c]) => {
+    const total = c.positive + c.neutral + c.negative;
+    const net = total ? ((c.positive - c.negative) / total * 100) : 0;
+    return { name, ...c, total, net };
+  });
+
+  // Sort: if filter is a sentiment, rank by that count desc; else by total mentions desc
+  if (grTop5Filter === 'all') {
+    list.sort((a, b) => b.total - a.total);
+  } else {
+    list.sort((a, b) => b[grTop5Filter] - a[grTop5Filter]);
+  }
+
+  // Top 5
+  const top5 = list.slice(0, 5);
+
+  top5.forEach((row, idx) => {
+    const netClass = row.net > 0 ? 'pos' : (row.net < 0 ? 'neg' : 'neu');
+    const netStr   = (row.net >= 0 ? '+' : '') + row.net.toFixed(0) + '%';
+
+    // Highlight the sorted column
+    const posStyle = grTop5Filter === 'positive' ? `font-weight:700;color:var(--pos)` : `color:var(--pos)`;
+    const neuStyle = grTop5Filter === 'neutral'  ? `font-weight:700;color:var(--neu)` : `color:var(--neu)`;
+    const negStyle = grTop5Filter === 'negative' ? `font-weight:700;color:var(--neg)` : `color:var(--neg)`;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="branch-name" title="${escapeHtml(row.name)}">${escapeHtml(row.name)}</td>
+      <td class="num" style="font-weight:700;color:var(--text)">${row.total.toLocaleString()}</td>
+      <td class="num" style="${posStyle}">${row.positive.toLocaleString()}</td>
+      <td class="num" style="${neuStyle}">${row.neutral.toLocaleString()}</td>
+      <td class="num" style="${negStyle}">${row.negative.toLocaleString()}</td>
+      <td class="num"><span class="gr-top5-netsent ${netClass}">${netStr}</span></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Filter pill event listeners
+document.querySelectorAll('.gr-top5-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gr-top5-pill').forEach(b => {
+      b.classList.remove('active-all','active-pos','active-neu','active-neg');
+    });
+    grTop5Filter = btn.dataset.top5;
+    const activeClass = grTop5Filter === 'all' ? 'active-all'
+      : grTop5Filter === 'positive' ? 'active-pos'
+      : grTop5Filter === 'neutral'  ? 'active-neu'
+      : 'active-neg';
+    btn.classList.add(activeClass);
+    renderGrTop5Branches();
+  });
 });
+
+
 
 // Review filter pills
 document.querySelectorAll('.gr-rev-pill').forEach(btn => {
@@ -2250,6 +2656,11 @@ document.querySelectorAll('.gr-rev-pill').forEach(btn => {
     grReviewLimit = 5; // reset on filter change
     renderGrExampleReviews();
   });
+});
+
+document.getElementById('grLoadMoreBtn').addEventListener('click', () => {
+  grReviewLimit += 10;
+  renderGrExampleReviews();
 });
 
 // Safe HTML escape (reusing pattern from elsewhere)
@@ -2365,8 +2776,45 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+    // Lazy-load full pandas rows on first visit to AI or Brand Deep-Dive tab
+    if ((btn.dataset.tab === 'ai' || btn.dataset.tab === 'brand') && rawData.length && !allRawData.length) {
+      _loadAllRawData();
+    }
   });
 });
+
+// Lazily serialise the full dataset from Pyodide in small column-slices to
+// avoid the MemoryError that occurs when to_json() is called on 60k+ wide rows.
+let _allRawDataLoading = false;
+async function _loadAllRawData() {
+  if (_allRawDataLoading || allRawData.length) return;
+  _allRawDataLoading = true;
+  try {
+    const _allRaw = await pyodide.runPythonAsync(`
+import json as _json
+_all_df2 = df.copy()
+_all_df2 = _all_df2.where(_all_df2.notna(), other=None)
+# Only keep columns useful to the UI to reduce payload size
+_keep_cols = [c for c in ['id','source','Source','text','Text','sentiment','created_at','date',
+    'engagement_score','view_count','comment_count','like_count','share_count','retweet_count','reply_count',
+    'Brands','Topics','Detail','detail','Category','category',
+    'link','Link','url','URL','post_url','post_link','permalink','source_url',
+    'title','Title','page','Page',
+    'branch','Branch','location','Location'] if c in _all_df2.columns]
+_all_df2 = _all_df2[_keep_cols] if _keep_cols else _all_df2
+_all_df2.to_json(orient='records', force_ascii=False)
+`);
+    allRawData = JSON.parse(typeof _allRaw === 'string' ? _allRaw : _allRaw.toString());
+    // Refresh panels that use allRawData now that it's available
+    if (document.querySelector('.tab-btn[data-tab="ai"]')?.classList.contains('active')) updateAiPanel();
+    if (document.querySelector('.tab-btn[data-tab="brand"]')?.classList.contains('active')) updateBrandDeepDive();
+  } catch(e) {
+    console.warn('Lazy allRawData load failed, falling back to rawData:', e.toString());
+    // Non-fatal: _aiPool() and bdd pool already fall back to rawData
+  } finally {
+    _allRawDataLoading = false;
+  }
+}
 
 
 // ── AI SUMMARY ────────────────────────────────────────────────────────────────
@@ -2438,14 +2886,14 @@ function populateAiFilters() {
     sel.appendChild(opt);
   });
 
-  // Source / Channel
+  // Source / Channel — always show exactly the 6 canonical channels (only those with data)
   const selSrc = document.getElementById('aiFilterSource');
   selSrc.innerHTML = '<option value="__all__">All channels</option>';
-  const sources = [...new Set(
-    pool.map(r => String(r.source || r.Source || r.channel || r.Channel || '').trim()).filter(Boolean)
-  )].sort();
-  sources.forEach(s => {
-    const opt = document.createElement('option'); opt.value = s; opt.textContent = s;
+  const presentChannels = new Set(
+    pool.map(r => normalizeChannel(String(r.source || r.Source || r.channel || r.Channel || '').trim()))
+  );
+  CANONICAL_CHANNELS.filter(ch => presentChannels.has(ch)).forEach(ch => {
+    const opt = document.createElement('option'); opt.value = ch; opt.textContent = ch;
     selSrc.appendChild(opt);
   });
 }
@@ -2464,7 +2912,7 @@ function getFilteredTexts() {
       if (!b.split(',').map(x=>x.trim()).includes(brand)) return false;
     }
     if (source !== '__all__') {
-      const rowSource = String(row.source || row.Source || row.channel || row.Channel || '').trim();
+      const rowSource = normalizeChannel(String(row.source || row.Source || row.channel || row.Channel || '').trim());
       if (rowSource !== source) return false;
     }
     if (sent !== '__all__' && row.sentiment !== sent) return false;
@@ -3018,6 +3466,654 @@ function copyTableToClipboard(tbodyId, btnId) {
     setTimeout(() => { btn.textContent = '⎘ Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
+
+// ── BRAND DEEP-DIVE MODULE ────────────────────────────────────────────────────
+let bddActiveBrand = null;
+let bddPostSentFilter = 'all';
+let bddPostLimit = 5;
+let bddMetric = 'engagement'; // 'mention' | 'engagement'
+
+// Brand color palette (cycles)
+const BDD_COLORS = [
+  '#2563EB','#7c3aed','#0ea5e9','#10b981','#f59e0b',
+  '#ef4444','#ec4899','#14b8a6','#6366f1','#84cc16',
+];
+function bddColor(brand) {
+  const brands = reportData.sentRows.map(r => r.brand);
+  const idx = brands.indexOf(brand);
+  return BDD_COLORS[(idx < 0 ? 0 : idx) % BDD_COLORS.length];
+}
+
+function updateBrandDeepDive() {
+  const hasData = rawData.length > 0;
+  document.getElementById('bddEmpty').style.display   = hasData ? 'none' : '';
+  document.getElementById('bddContent').style.display = hasData ? ''     : 'none';
+  if (!hasData) return;
+
+  // Sync metric toggle buttons
+  document.querySelectorAll('.bdd-metric-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.metric === bddMetric);
+  });
+
+  // Build brand pills
+  const pillsEl = document.getElementById('bddBrandPills');
+  pillsEl.innerHTML = '';
+  const brands = reportData.sentRows.map(r => r.brand).filter(Boolean);
+  if (!brands.length) return;
+
+  brands.forEach((b, i) => {
+    const p = document.createElement('button');
+    p.className = 'bdd-pill' + (b === bddActiveBrand ? ' active' : '');
+    p.textContent = b;
+    p.style.setProperty('--pill-color', BDD_COLORS[i % BDD_COLORS.length]);
+    if (b === bddActiveBrand) {
+      p.style.background = BDD_COLORS[i % BDD_COLORS.length];
+      p.style.borderColor = BDD_COLORS[i % BDD_COLORS.length];
+    }
+    p.addEventListener('click', () => {
+      bddActiveBrand = b;
+      bddPostSentFilter = 'all';
+      bddPostLimit = 5;
+      // Reset post filter pills
+      document.querySelectorAll('[data-bdd-sent]').forEach(x => x.classList.toggle('active', x.dataset.bddSent === 'all'));
+      updateBrandDeepDive();
+    });
+    pillsEl.appendChild(p);
+  });
+
+  // Auto-select first brand if none selected
+  if (!bddActiveBrand || !brands.includes(bddActiveBrand)) {
+    bddActiveBrand = brands[0];
+    updateBrandDeepDive(); return;
+  }
+
+  renderBddHero();
+  renderBddKpis();
+  renderBddSentDonut();
+  renderBddTopicBars();
+  renderBddSourceBars();
+  renderBddTopicSentBars();
+  renderBddCompareTable();
+  renderBddTopPosts();
+}
+
+// ── HERO ──────────────────────────────────────────────────────────────────────
+function renderBddHero() {
+  const brand = bddActiveBrand;
+  const color = bddColor(brand);
+  const heroEl = document.getElementById('bddHero');
+  heroEl.style.display = '';
+  document.getElementById('bddHeroBadge').textContent = brand.charAt(0).toUpperCase();
+  document.getElementById('bddHeroBadge').style.background = `linear-gradient(135deg, ${color}, ${color}cc)`;
+  document.getElementById('bddHeroName').textContent = brand;
+
+  const metrics = reportData.metrics || {};
+  const row = reportData.sentRows.find(r => r.brand === brand);
+
+  if (bddMetric === 'engagement') {
+    const eng = Math.round(metrics.engagement?.brand?.[brand]||0);
+    // Use the true global total (pre-explode) as denominator.
+    // Summing eng_by_brand across all brands inflates the total because posts
+    // tagged to multiple brands are counted in each brand's bucket.
+    const globalEng = reportData.totalEngagement || 1;
+    const share = (eng / globalEng * 100).toFixed(1);
+    document.getElementById('bddHeroSub').textContent =
+      `${eng.toLocaleString()} total engagement · ${share}% share of engagement`;
+  } else {
+    const men = metrics.mention?.brand?.[brand] ?? (reportData.sentRows.find(r => r.brand === brand)?.total ?? 0);
+    // Use the true global unique-post count as denominator for the same reason.
+    const globalMen = reportData.totalMention || 1;
+    const share = (men / globalMen * 100).toFixed(1);
+    document.getElementById('bddHeroSub').textContent =
+      `${men.toLocaleString()} mentions · ${share}% share of voice`;
+  }
+}
+
+// ── KPIS ──────────────────────────────────────────────────────────────────────
+function renderBddKpis() {
+  const brand = bddActiveBrand;
+  const color = bddColor(brand);
+  const row   = reportData.sentRows.find(r => r.brand === brand) || {positive:0,neutral:0,negative:0,total:0};
+  const metrics = reportData.metrics || {};
+  const eng  = (metrics.engagement?.brand?.[brand]||0);
+  const men  = (metrics.mention?.brand?.[brand] || row.total || 0);
+  // Use men (single-explode unique count) as denominator for sentiment %,
+  // not row.total which is overcounted from the Brand×Topic double-explode.
+  const total = men || 1;
+  const posPct = (row.positive / total * 100).toFixed(1);
+  const negPct = (row.negative / total * 100).toFixed(1);
+  const netSent = ((row.positive - row.negative) / total * 100).toFixed(1);
+  const netColor = netSent >= 20 ? 'var(--pos)' : (netSent <= -20 ? 'var(--neg)' : 'var(--neu)');
+
+  const kpis = [
+    { key:'engagement', val: Math.round(eng).toLocaleString(),              lbl: 'Total Engagement', sub: 'engagement score',                       cls: 'eng' },
+    { key:'mention',    val: men.toLocaleString(),                          lbl: 'Total Mentions',   sub: 'unique posts',                           cls: '' },
+    { key:'positive',   val: posPct + '%',                                  lbl: 'Positive',         sub: row.positive.toLocaleString() + ' posts', cls: 'pos' },
+    { key:'negative',   val: negPct + '%',                                  lbl: 'Negative',         sub: row.negative.toLocaleString() + ' posts', cls: 'neg' },
+    { key:'net',        val: (netSent >= 0 ? '+' : '') + netSent + '%',     lbl: 'Net Sentiment',    sub: 'positive minus negative',                cls: '' },
+  ];
+
+  const el = document.getElementById('bddKpiRow');
+  el.innerHTML = '';
+  kpis.forEach(k => {
+    const isActiveMetric = k.key === bddMetric;
+    const ringColor = k.key === 'engagement' ? '#7c3aed' : color;
+    const d = document.createElement('div');
+    d.className = `bdd-kpi ${k.cls}`;
+    if (isActiveMetric) d.style.cssText = `box-shadow:0 0 0 2.5px ${ringColor},0 4px 14px rgba(0,0,0,.08);`;
+    const valColor = k.lbl==='Net Sentiment' ? netColor
+                   : k.cls==='pos' ? 'var(--pos)'
+                   : k.cls==='neg' ? 'var(--neg)'
+                   : k.cls==='eng' ? '#7c3aed'
+                   : color;
+    d.innerHTML = `
+      ${isActiveMetric ? `<div style="font-size:9px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:${ringColor};margin-bottom:5px;display:flex;align-items:center;gap:4px"><span style="width:6px;height:6px;border-radius:50%;background:${ringColor};display:inline-block"></span>ACTIVE VIEW</div>` : ''}
+      <div class="bdd-kpi-val" style="color:${valColor}">${k.val}</div>
+      <div class="bdd-kpi-lbl">${k.lbl}</div>
+      <div class="bdd-kpi-sub">${k.sub}</div>`;
+    el.appendChild(d);
+  });
+}
+
+// ── SENTIMENT DONUT ───────────────────────────────────────────────────────────
+function renderBddSentDonut() {
+  const brand = bddActiveBrand;
+  const el    = document.getElementById('bddSentDonut');
+  el.innerHTML = '';
+  const row = reportData.sentRows.find(r => r.brand === brand) || {positive:0,neutral:0,negative:0,total:0};
+  const total = row.positive + row.neutral + row.negative || 1;
+
+  const segs = [
+    { label:'Positive', val:row.positive, color:'#1DC997' },
+    { label:'Neutral',  val:row.neutral,  color:'#FFC145' },
+    { label:'Negative', val:row.negative, color:'#FF5050' },
+  ];
+
+  const SIZE = 200, STROKE = 38, R = (SIZE - STROKE) / 2;
+  const canvas = document.createElement('canvas');
+  canvas.width = SIZE; canvas.height = SIZE;
+  canvas.style.cssText = 'display:block;margin:0 auto';
+
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'position:relative;width:'+SIZE+'px;margin:0 auto 12px';
+
+  const centre = document.createElement('div');
+  centre.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none';
+  centre.innerHTML = `<div style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:var(--text)">${total.toLocaleString()}</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:.8px">MENTIONS</div>`;
+
+  wrap.appendChild(canvas);
+  wrap.appendChild(centre);
+  el.appendChild(wrap);
+
+  const leg = document.createElement('div');
+  leg.style.cssText = 'display:flex;flex-direction:column;gap:7px;margin-top:4px';
+  segs.forEach(s => {
+    const pct = (s.val / total * 100).toFixed(1);
+    const r2 = document.createElement('div');
+    r2.style.cssText = 'display:flex;align-items:center;gap:8px;padding:5px 8px;background:var(--bg);border:1px solid var(--border);border-radius:6px';
+    r2.innerHTML = `<span style="width:10px;height:10px;border-radius:3px;background:${s.color};flex-shrink:0;display:inline-block"></span><span style="font-size:12px;font-weight:600;color:var(--text2);flex:1">${s.label}</span><span style="font-family:'DM Mono',monospace;font-size:12px;font-weight:700;color:var(--text)">${s.val.toLocaleString()}</span><span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);min-width:40px;text-align:right">${pct}%</span>`;
+    leg.appendChild(r2);
+  });
+  el.appendChild(leg);
+
+  requestAnimationFrame(() => {
+    const ctx = canvas.getContext('2d');
+    const cx = SIZE/2, cy = SIZE/2;
+    ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.strokeStyle='rgba(0,0,0,.06)'; ctx.lineWidth=STROKE; ctx.stroke();
+    let angle = -Math.PI/2;
+    segs.forEach(s => {
+      if (!s.val) return;
+      const sweep = (s.val/total)*Math.PI*2;
+      ctx.beginPath(); ctx.arc(cx,cy,R,angle,angle+sweep); ctx.strokeStyle=s.color; ctx.lineWidth=STROKE; ctx.lineCap='butt'; ctx.stroke();
+      angle += sweep;
+    });
+  });
+}
+
+// ── TOPIC BREAKDOWN ───────────────────────────────────────────────────────────
+function renderBddTopicBars() {
+  const brand = bddActiveBrand;
+  const el    = document.getElementById('bddTopicBars');
+  el.innerHTML = '';
+  const bt = reportData.brandTopicSent?.[brand] || {};
+  const color = bddColor(brand);
+  const metrics = reportData.metrics || {};
+
+  // Build per-topic engagement from topicRows
+  const topicEngMap = {};
+  (reportData.topicRows||[]).forEach(r => {
+    if (r.brand === brand || (r.brand === '' && false)) {
+      if (r.topic && r.engagement !== '') topicEngMap[r.topic] = parseFloat(r.engagement)||0;
+    }
+  });
+  // Also pull from a full scan of topicRows finding the brand block
+  let foundBrand = false;
+  (reportData.topicRows||[]).forEach(r => {
+    if (r.brand === brand) foundBrand = true;
+    if (foundBrand && r.brand === '__blank__') foundBrand = false;
+    if (foundBrand && r.topic && r.topic !== '') topicEngMap[r.topic] = parseFloat(r.engagement)||0;
+  });
+
+  const topicData = TOPIC_ORDER.map(t => {
+    const d = bt[t] || {positive:0,neutral:0,negative:0};
+    const mentionTotal = d.positive + d.neutral + d.negative;
+    const engTotal = topicEngMap[t] || 0;
+    return { topic:t, mention:mentionTotal, engagement:engTotal, ...d };
+  });
+
+  const useEng = bddMetric === 'engagement';
+  const metricKey = useEng ? 'engagement' : 'mention';
+  const sorted = [...topicData].filter(x => x[metricKey] > 0).sort((a,b) => b[metricKey] - a[metricKey]);
+
+  if (!sorted.length) { el.innerHTML = '<div class="bdd-placeholder">No topic data available</div>'; return; }
+  const maxVal = Math.max(...sorted.map(x => x[metricKey]), 1);
+
+  // Section label
+  const metaLabel = document.createElement('div');
+  metaLabel.style.cssText = 'font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px';
+  metaLabel.innerHTML = `<span style="padding:2px 8px;border-radius:4px;background:${useEng?'#f5f3ff':'var(--accent-lt)'};color:${useEng?'#7c3aed':'var(--accent)'};border:1px solid ${useEng?'rgba(124,58,237,.2)':'rgba(37,99,235,.2)'}">by ${useEng ? '⚡ engagement' : '📌 mention'}</span>`;
+  el.appendChild(metaLabel);
+
+  sorted.forEach(d => {
+    const barPct = (d[metricKey] / maxVal * 100).toFixed(1);
+    const displayVal = useEng ? Math.round(d.engagement).toLocaleString() : d.mention.toLocaleString();
+    const row = document.createElement('div');
+    row.className = 'bdd-topic-bar-row';
+    row.innerHTML = `
+      <div class="bdd-topic-lbl" title="${d.topic}">${d.topic}</div>
+      <div class="bdd-topic-track">
+        <div class="bdd-topic-seg" style="width:0%;background:${SENT_COLORS.positive}" title="positive: ${d.positive.toLocaleString()}"></div>
+        <div class="bdd-topic-seg" style="width:0%;background:${SENT_COLORS.neutral}"  title="neutral: ${d.neutral.toLocaleString()}"></div>
+        <div class="bdd-topic-seg" style="width:0%;background:${SENT_COLORS.negative}" title="negative: ${d.negative.toLocaleString()}"></div>
+      </div>
+      <div class="bdd-topic-total">${displayVal}</div>`;
+    el.appendChild(row);
+    requestAnimationFrame(() => {
+      const mentionTotal = d.mention || 1;
+      const pos = (d.positive/mentionTotal*100).toFixed(1);
+      const neu = (d.neutral/mentionTotal*100).toFixed(1);
+      const neg = (d.negative/mentionTotal*100).toFixed(1);
+      // Bar width reflects the active metric; sentiment split is always mention-based
+      const segs = row.querySelectorAll('.bdd-topic-seg');
+      segs[0].style.width = (parseFloat(pos) * barPct / 100).toFixed(2)+'%';
+      segs[1].style.width = (parseFloat(neu) * barPct / 100).toFixed(2)+'%';
+      segs[2].style.width = (parseFloat(neg) * barPct / 100).toFixed(2)+'%';
+    });
+  });
+
+  const leg = document.createElement('div');
+  leg.className = 'sent-legend';
+  leg.style.cssText = 'margin-top:12px';
+  ['positive','neutral','negative'].forEach(s => {
+    const i = document.createElement('div'); i.className = 'sent-leg-item';
+    i.innerHTML = `<span class="sent-leg-dot" style="background:${SENT_COLORS[s]}"></span>${s}`;
+    leg.appendChild(i);
+  });
+  el.appendChild(leg);
+}
+
+// ── SOURCE / CHANNEL BREAKDOWN ────────────────────────────────────────────────
+function renderBddSourceBars() {
+  const brand = bddActiveBrand;
+  const el    = document.getElementById('bddSourceBars');
+  el.innerHTML = '';
+  const useEng = bddMetric === 'engagement';
+
+  const pool = (allRawData.length ? allRawData : rawData).filter(row => {
+    let b = String(row.Brands||'').trim();
+    if (b.startsWith('[') && b.endsWith(']')) b = b.slice(1,-1);
+    return b.split(',').map(x=>x.trim()).includes(brand);
+  });
+
+  // Accumulate into the 6 canonical channels
+  const buckets = {};
+  CANONICAL_CHANNELS.forEach(ch => { buckets[ch] = { mention:0, engagement:0 }; });
+  pool.forEach(r => {
+    const ch = normalizeChannel(r.source||r.Source||r.channel||r.Channel||'');
+    buckets[ch].mention++;
+    buckets[ch].engagement += parseFloat(r.engagement_score)||0;
+  });
+
+  const metricKey = useEng ? 'engagement' : 'mention';
+  const entries = CANONICAL_CHANNELS
+    .map(ch => [ch, useEng ? Math.round(buckets[ch].engagement) : buckets[ch].mention])
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1]);
+
+  if (!entries.length) { el.innerHTML = '<div class="bdd-placeholder">No source data available</div>'; return; }
+  const maxVal = entries[0][1];
+
+  // Meta label
+  const metaLabel = document.createElement('div');
+  metaLabel.style.cssText = 'font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px';
+  metaLabel.innerHTML = `<span style="padding:2px 8px;border-radius:4px;background:${useEng?'#f5f3ff':'var(--accent-lt)'};color:${useEng?'#7c3aed':'var(--accent)'};border:1px solid ${useEng?'rgba(124,58,237,.2)':'rgba(37,99,235,.2)'}">by ${useEng ? '⚡ engagement' : '📌 mention'}</span>`;
+  el.appendChild(metaLabel);
+
+  entries.forEach(([ch, cnt]) => {
+    const pct = (cnt / maxVal * 100).toFixed(1);
+    const color = CHANNEL_COLORS[ch] || '#6B7280';
+    const row = document.createElement('div');
+    row.className = 'bdd-src-row';
+    row.innerHTML = `
+      <div class="bdd-src-lbl" title="${ch}" style="display:flex;align-items:center;gap:6px">
+        <span style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0;display:inline-block"></span>
+        ${ch}
+      </div>
+      <div class="bdd-src-track"><div class="bdd-src-fill" style="width:0%;background:${color}"></div></div>
+      <div class="bdd-src-val">${cnt.toLocaleString()}</div>`;
+    el.appendChild(row);
+    requestAnimationFrame(() => { row.querySelector('.bdd-src-fill').style.width = pct+'%'; });
+  });
+
+  // Channel legend dots at bottom
+  const leg = document.createElement('div');
+  leg.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;padding-top:10px;border-top:1px solid var(--border)';
+  CANONICAL_CHANNELS.forEach(ch => {
+    const dot = document.createElement('div');
+    dot.style.cssText = 'display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);font-weight:600';
+    dot.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:${CHANNEL_COLORS[ch]};display:inline-block;flex-shrink:0"></span>${ch}`;
+    leg.appendChild(dot);
+  });
+  el.appendChild(leg);
+}
+
+// ── SENTIMENT BY TOPIC ────────────────────────────────────────────────────────
+function renderBddTopicSentBars() {
+  const brand = bddActiveBrand;
+  const el    = document.getElementById('bddTopicSentBars');
+  el.innerHTML = '';
+  const bt = reportData.brandTopicSent?.[brand] || {};
+
+  const leg = document.createElement('div');
+  leg.className = 'sent-legend';
+  leg.style.marginBottom = '10px';
+  ['positive','neutral','negative'].forEach(s => {
+    const i = document.createElement('div'); i.className = 'sent-leg-item';
+    i.innerHTML = `<span class="sent-leg-dot" style="background:${SENT_COLORS[s]}"></span>${s}`;
+    leg.appendChild(i);
+  });
+  el.appendChild(leg);
+
+  TOPIC_ORDER.forEach(topic => {
+    const d = bt[topic] || {positive:0,neutral:0,negative:0};
+    const pos = d.positive||0, neu = d.neutral||0, neg = d.negative||0;
+    const total = pos+neu+neg||1;
+    const pp = (pos/total*100).toFixed(1), np = (neu/total*100).toFixed(1), negp = (neg/total*100).toFixed(1);
+
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:8px';
+
+    const lbl = document.createElement('div');
+    lbl.style.cssText = 'font-family:"DM Mono",monospace;font-size:10px;font-weight:700;color:var(--text2);width:70px;flex-shrink:0;text-transform:capitalize';
+    lbl.textContent = topic;
+
+    const track = document.createElement('div');
+    track.style.cssText = 'flex:1;height:18px;display:flex;border-radius:5px;overflow:hidden;background:var(--border)';
+    ['positive','neutral','negative'].forEach((s,i) => {
+      const seg = document.createElement('div');
+      seg.style.cssText = `width:0%;height:100%;background:${SENT_COLORS[s]};transition:width .6s cubic-bezier(.16,1,.3,1)`;
+      seg.title = `${s}: ${[pos,neu,neg][i].toLocaleString()} (${[pp,np,negp][i]}%)`;
+      track.appendChild(seg);
+      requestAnimationFrame(() => { seg.style.width = [pp,np,negp][i]+'%'; });
+    });
+
+    const tot = document.createElement('div');
+    tot.style.cssText = 'font-family:"DM Mono",monospace;font-size:10px;color:var(--text3);width:32px;text-align:right;flex-shrink:0';
+    tot.textContent = (pos+neu+neg).toLocaleString();
+
+    wrap.appendChild(lbl); wrap.appendChild(track); wrap.appendChild(tot);
+    el.appendChild(wrap);
+  });
+}
+
+// ── WORD CLOUD ────────────────────────────────────────────────────────────────
+// ── COMPETITOR COMPARISON TABLE ────────────────────────────────────────────────
+function renderBddCompareTable() {
+  const activeBrand = bddActiveBrand;
+  // Default sort follows the active metric toggle; the dropdown can override
+  const sortKey = document.getElementById('bddCompareSort').value;
+  const tbody = document.getElementById('bddCompareTBody');
+  tbody.innerHTML = '';
+
+  // Sync the sort dropdown to match the active metric when it hasn't been manually changed
+  const dropdown = document.getElementById('bddCompareSort');
+  if (dropdown.dataset.userSet !== 'true') {
+    dropdown.value = bddMetric === 'engagement' ? 'engagement' : 'mention';
+  }
+  const effectiveSortKey = dropdown.value;
+
+  const metrics = reportData.metrics || {};
+  let rows = reportData.sentRows.map(r => {
+    // Use men_by_brand (single brand-axis explode, unique IDs) for mention count.
+    // r.total comes from sentiment_counts_by_brand which uses the Brand×Topic
+    // double-exploded df and overcounts posts that have multiple topics.
+    const mention = metrics.mention?.brand?.[r.brand] ?? r.total;
+    const total = mention || 1;
+    return {
+      brand:      r.brand,
+      mention:    mention,
+      engagement: Math.round(metrics.engagement?.brand?.[r.brand]||0),
+      positive:   r.positive,
+      neutral:    r.neutral,
+      negative:   r.negative,
+      posPct:     r.positive/total*100,
+      negPct:     r.negative/total*100,
+    };
+  });
+
+  rows.sort((a,b) => {
+    if (effectiveSortKey === 'mention')    return b.mention - a.mention;
+    if (effectiveSortKey === 'engagement') return b.engagement - a.engagement;
+    if (effectiveSortKey === 'positive')   return b.posPct - a.posPct;
+    if (effectiveSortKey === 'negative')   return b.negPct - a.negPct;
+    return 0;
+  });
+
+  const maxMention    = Math.max(...rows.map(r => r.mention), 1);
+  const maxEngagement = Math.max(...rows.map(r => r.engagement), 1);
+
+  // Highlight the active-metric column header
+  document.querySelectorAll('#bddCompareTable thead th').forEach(th => {
+    const col = th.dataset.col;
+    const isActive = col === bddMetric;
+    th.style.color     = isActive ? (bddMetric==='engagement' ? '#7c3aed' : 'var(--accent)') : '';
+    th.style.background= isActive ? (bddMetric==='engagement' ? '#f5f3ff' : 'var(--accent-lt)') : '';
+  });
+
+  rows.forEach(r => {
+    const isActive = r.brand === activeBrand;
+    const color = bddColor(r.brand);
+    const posPct  = (r.posPct).toFixed(1);
+    const negPct  = (r.negPct).toFixed(1);
+    const neuPct  = (r.neutral / (r.mention||1) * 100).toFixed(1);
+    const posBarW = r.posPct.toFixed(1);
+    const negBarW = r.negPct.toFixed(1);
+
+    // Which primary metric column to emphasise
+    const mentionStyle    = bddMetric === 'mention'     ? `font-weight:800;color:var(--accent)`  : '';
+    const engagementStyle = bddMetric === 'engagement'  ? `font-weight:800;color:#7c3aed`        : '';
+
+    const tr = document.createElement('tr');
+    if (isActive) tr.className = 'highlight-row';
+
+    tr.innerHTML = `
+      <td style="font-weight:${isActive?'800':'600'};color:${isActive?color:'var(--text2)'}">
+        ${isActive?'▶ ':''}${r.brand}
+      </td>
+      <td class="num">
+        <div class="bdd-bar-inline">
+          <span style="min-width:50px;text-align:right;${mentionStyle}">${r.mention.toLocaleString()}</span>
+          <div class="bdd-bar-inline-track"><div class="bdd-bar-inline-fill" style="width:${(r.mention/maxMention*100).toFixed(1)}%;background:${bddMetric==='mention'?(isActive?color:'var(--accent)'):'var(--border2)'}"></div></div>
+        </div>
+      </td>
+      <td class="num">
+        <div class="bdd-bar-inline">
+          <span style="min-width:60px;text-align:right;${engagementStyle}">${r.engagement.toLocaleString()}</span>
+          <div class="bdd-bar-inline-track"><div class="bdd-bar-inline-fill" style="width:${(r.engagement/maxEngagement*100).toFixed(1)}%;background:${bddMetric==='engagement'?'#7c3aed':'var(--border2)'}"></div></div>
+        </div>
+      </td>
+      <td class="num" style="color:var(--pos);font-weight:600">${posPct}%</td>
+      <td class="num" style="color:var(--neu);font-weight:600">${neuPct}%</td>
+      <td class="num" style="color:var(--neg);font-weight:600">${negPct}%</td>
+      <td>
+        <div style="display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--bg);border:1px solid var(--border)">
+          <div style="width:${posBarW}%;background:var(--pos);transition:width .6s"></div>
+          <div style="width:${(100-parseFloat(posBarW)-parseFloat(negBarW)).toFixed(1)}%;background:var(--neu)"></div>
+          <div style="width:${negBarW}%;background:var(--neg)"></div>
+        </div>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+document.getElementById('bddCompareSort').addEventListener('change', () => {
+  document.getElementById('bddCompareSort').dataset.userSet = 'true';
+  if (bddActiveBrand) renderBddCompareTable();
+});
+
+// Metric toggle
+document.querySelectorAll('.bdd-metric-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    bddMetric = btn.dataset.metric;
+    // Reset sort dropdown to follow metric
+    document.getElementById('bddCompareSort').dataset.userSet = 'false';
+    document.getElementById('bddCompareSort').value = bddMetric === 'engagement' ? 'engagement' : 'mention';
+    if (bddActiveBrand) updateBrandDeepDive();
+  });
+});
+
+// ── TOP POSTS ─────────────────────────────────────────────────────────────────
+
+// Robustly parse a date value into a clean "DD Mon YYYY" string.
+// Handles ISO timestamps, Unix epoch (seconds & ms), and DD/MM/YYYY variants.
+function _formatPostDate(raw) {
+  if (!raw && raw !== 0) return '';
+  const s = String(raw).trim();
+  if (!s || s === 'null' || s === 'undefined') return '';
+
+  // Unix epoch in seconds (10 digits) or milliseconds (13 digits)
+  if (/^\d{10}$/.test(s)) {
+    const d = new Date(parseInt(s, 10) * 1000);
+    return _dateToDisplay(d);
+  }
+  if (/^\d{13}$/.test(s)) {
+    const d = new Date(parseInt(s, 10));
+    return _dateToDisplay(d);
+  }
+
+  // DD/MM/YYYY or DD-MM-YYYY → rewrite to YYYY-MM-DD for reliable parsing
+  const dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
+  if (dmy) {
+    const d = new Date(`${dmy[3]}-${dmy[2].padStart(2,'0')}-${dmy[1].padStart(2,'0')}`);
+    return _dateToDisplay(d);
+  }
+
+  // ISO / natural string — let Date parse it
+  const d = new Date(s);
+  if (!isNaN(d.getTime())) return _dateToDisplay(d);
+
+  // Last resort: return the first 10 chars as-is if they look like a date
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  return '';
+}
+
+function _dateToDisplay(d) {
+  if (!d || isNaN(d.getTime())) return '';
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function renderBddTopPosts() {
+  const brand = bddActiveBrand;
+  const el    = document.getElementById('bddTopPosts');
+  el.innerHTML = '';
+
+  let pool = (allRawData.length ? allRawData : rawData).filter(row => {
+    let b = String(row.Brands||'').trim();
+    if (b.startsWith('[') && b.endsWith(']')) b = b.slice(1,-1);
+    return b.split(',').map(x=>x.trim()).includes(brand);
+  });
+
+  if (bddPostSentFilter !== 'all') {
+    pool = pool.filter(r => String(r.sentiment||'').toLowerCase() === bddPostSentFilter);
+  }
+
+  pool = pool.filter(r => String(r.text||'').trim() && String(r.text||'').trim() !== 'null');
+  pool.sort((a,b) => (parseFloat(b.engagement_score)||0) - (parseFloat(a.engagement_score)||0));
+
+  const slice = pool.slice(0, bddPostLimit);
+  if (!slice.length) {
+    el.innerHTML = '<div class="bdd-placeholder">No posts match the current filter</div>';
+    document.getElementById('bddLoadMorePosts').style.display = 'none';
+    return;
+  }
+
+  slice.forEach((row, idx) => {
+    const sent    = String(row.sentiment||'').toLowerCase();
+    const rawSrc  = String(row.source||row.Source||'').trim();
+    const src     = normalizeChannel(rawSrc);
+    const srcColor = CHANNEL_COLORS[src] || '#6B7280';
+
+    // ── Date: use the robust parser ──────────────────────────────────────────
+    const dateRaw = row.created_at || row.date || row.Date || row.Created_At || '';
+    const date    = _formatPostDate(dateRaw);
+
+    // ── Metrics ──────────────────────────────────────────────────────────────
+    const eng     = parseFloat(row.engagement_score) || 0;
+    const views   = parseFloat(row.view_count)       || 0;
+    const comments= parseFloat(row.comment_count)    || 0;
+    const likes   = parseFloat(row.like_count)       || 0;
+
+    const text    = String(row.text||'').trim();
+    const link    = _grGet(row, 'link','Link','url','URL','post_url','post_link','permalink','source_url');
+    const hasLink = link && link.startsWith('http');
+
+    const item = document.createElement('div');
+    item.className = 'bdd-post-item';
+    item.innerHTML = `
+      <div class="bdd-post-rank">${idx+1}</div>
+      <div class="bdd-post-body">
+        <div class="bdd-post-meta">
+          ${src  ? `<span class="bdd-post-source" style="border-left:3px solid ${srcColor};padding-left:6px">${escapeHtml(src)}</span>` : ''}
+          ${date ? `<span class="bdd-post-date">📅 ${escapeHtml(date)}</span>` : ''}
+          ${sent ? `<span class="badge ${sent}" style="font-size:10px">${sent}</span>` : ''}
+          ${hasLink ? `<a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="bdd-post-link" title="Open original post">↗ View post</a>` : ''}
+        </div>
+        <div class="bdd-post-text">${escapeHtml(text)}</div>
+        <div class="bdd-post-stats">
+          ${eng      ? `<span class="bdd-post-stat" title="Engagement score">⚡ <strong>${eng.toLocaleString()}</strong> engagement</span>` : ''}
+          ${comments ? `<span class="bdd-post-stat" title="Comments">💬 <strong>${comments.toLocaleString()}</strong> comments</span>` : ''}
+          ${views    ? `<span class="bdd-post-stat" title="Views">👁 <strong>${views.toLocaleString()}</strong> views</span>` : ''}
+          ${likes    ? `<span class="bdd-post-stat" title="Likes">❤️ <strong>${likes.toLocaleString()}</strong> likes</span>` : ''}
+        </div>
+      </div>`;
+    el.appendChild(item);
+  });
+
+  const loadBtn = document.getElementById('bddLoadMorePosts');
+  if (pool.length > bddPostLimit) {
+    loadBtn.style.display = '';
+    loadBtn.textContent = `Load more posts (${(pool.length - bddPostLimit).toLocaleString()} remaining)`;
+  } else {
+    loadBtn.style.display = 'none';
+  }
+}
+
+document.getElementById('bddLoadMorePosts').addEventListener('click', () => {
+  bddPostLimit += 5;
+  renderBddTopPosts();
+});
+
+// Post sentiment filter pills
+document.querySelectorAll('[data-bdd-sent]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-bdd-sent]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    bddPostSentFilter = btn.dataset.bddSent;
+    bddPostLimit = 5;
+    renderBddTopPosts();
+  });
+});
 
 initPyodide().catch(err=>{
   setStatus('error','Python failed');
