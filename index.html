@@ -916,7 +916,7 @@ table.dt tbody td{padding:9px 14px;font-size:12px;color:var(--text2);max-width:2
                 <span id="geminiKeyStatus" style="font-size:12px;font-weight:500;color:var(--text3)">No key saved</span>
               </div>
               <div style="font-size:11px;color:var(--text3);margin-top:6px">
-                Get a <strong>free</strong> key at <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--accent)">aistudio.google.com</a> — Gemini 2.5 Flash is free tier with rate limits
+                Get a <strong>free</strong> key at <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--accent)">aistudio.google.com</a> — Gemini 2.5 Flash-Lite is the default (free tier · fastest)
               </div>
             </div>
           </div>
@@ -2437,8 +2437,27 @@ function getActiveCols(){
   return [...document.querySelectorAll('#colToggle .col-check')].filter(l=>l.querySelector('input').checked).map(l=>l.querySelector('input').nextSibling.textContent.trim());
 }
 function renderTable(){
-  const data=(filteredData.length||activeBrands.size||document.getElementById('tableSearch')?.value)?filteredData:rawData;
-  if(!data.length){document.getElementById('tableEmpty').style.display='';document.getElementById('tableArea').style.display='none';return;}
+  const searchVal = document.getElementById('tableSearch')?.value || '';
+  const isFiltering = activeBrands.size > 0 || searchVal;
+  const data = isFiltering ? filteredData : rawData;
+  // No CSV uploaded at all — show the upload prompt
+  if(!rawData.length){
+    document.getElementById('tableEmpty').style.display='';
+    document.getElementById('tableArea').style.display='none';
+    return;
+  }
+  // CSV loaded but filter/search returned nothing — show inline no-results
+  if(!data.length){
+    document.getElementById('tableEmpty').style.display='none';
+    document.getElementById('tableArea').style.display='';
+    document.getElementById('tHead').innerHTML='';
+    const tb=document.getElementById('tBody');
+    tb.innerHTML=`<tr><td colspan="20" style="text-align:center;padding:48px 20px;color:var(--text3);font-size:13px;font-style:italic">&#x1F50D; No results found for <strong style="color:var(--text2)">&ldquo;${searchVal.replace(/</g,'&lt;')}&rdquo;</strong> &mdash; try a different keyword or clear the filter</td></tr>`;
+    document.getElementById('pageInfo').textContent='';
+    document.getElementById('prevPage').disabled=true;
+    document.getElementById('nextPage').disabled=true;
+    return;
+  }
   document.getElementById('tableEmpty').style.display='none';document.getElementById('tableArea').style.display='';
   const cols=getActiveCols(),total=Math.ceil(data.length/PAGE_SIZE);
   currentPage=Math.min(currentPage,total);
@@ -3246,21 +3265,39 @@ let geminiApiKey = '';
 let aiProvider  = 'gemini';  // 'gemini'
 
 const AI_MODELS = {
-  gemini: [
-    { value: 'gemini-2.5-flash',          label: 'Gemini 2.5 Flash (free · recommended)' },
-    { value: 'gemini-2.5-flash-lite',      label: 'Gemini 2.5 Flash-Lite (free · fastest)' },
-    { value: 'gemini-2.5-pro',             label: 'Gemini 2.5 Pro (free tier · best quality)' },
-  ],
+  gemini: {
+    primary:   [
+      { value: 'gemini-2.5-flash-lite', label: 'Gemini 2.5 Flash-Lite (free · fastest)' },
+    ],
+    secondary: [
+      { value: 'gemini-2.5-flash',      label: 'Gemini 2.5 Flash (free · recommended)' },
+      { value: 'gemini-2.5-pro',        label: 'Gemini 2.5 Pro (free tier · best quality)' },
+    ],
+  },
 };
 
 function populateModelSelect() {
   const sel = document.getElementById('aiModel');
   sel.innerHTML = '';
-  AI_MODELS[aiProvider].forEach(m => {
+  const models = AI_MODELS[aiProvider];
+  // Primary group
+  const grPrimary = document.createElement('optgroup');
+  grPrimary.label = '⭐ Primary';
+  models.primary.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.value; opt.textContent = m.label; opt.selected = true;
+    grPrimary.appendChild(opt);
+  });
+  sel.appendChild(grPrimary);
+  // Secondary group
+  const grSecondary = document.createElement('optgroup');
+  grSecondary.label = 'Other Models';
+  models.secondary.forEach(m => {
     const opt = document.createElement('option');
     opt.value = m.value; opt.textContent = m.label;
-    sel.appendChild(opt);
+    grSecondary.appendChild(opt);
   });
+  sel.appendChild(grSecondary);
 }
 
 // Provider toggle (Gemini only)
